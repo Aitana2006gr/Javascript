@@ -1,7 +1,7 @@
 //AITANA GÓNZÁLEZ RODRÍGUEZ
 //Script que crea y muestra los objetos con herencia por prototipos.
 
-//Hago el import de las funciones del ejercicio5 a este script principal
+//Hago el import de las funciones del ejercicio a este script principal
 import { Electrodomestico, Lavadora, mostrarError, mostrarMensaje } from "./funciones.js";
 
 // Función auxiliar para añadir contenido a la división 'salida' (no reemplaza el contenido).

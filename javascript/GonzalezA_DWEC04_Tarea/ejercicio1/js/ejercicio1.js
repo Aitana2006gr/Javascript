@@ -1,7 +1,7 @@
 //AITANA GÓNZÁLEZ RODRÍGUEZ
 //Script que crea matrices de 1, 2 o 3 dimensiones con valores en forma de coordenadas.
 
-//Hago el import de las funciones del ejercicio5 a este script principal
+//Hago el import de las funciones del ejercicio a este script principal
 import { mostrarError, mostrarMensaje, crearMatriz, mostrarMatriz } from "./funciones.js";
 
 //Variable global donde se guardará la matriz creada
