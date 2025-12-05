@@ -1,47 +1,33 @@
-/**
- * DWEC04.01 - Ejercicio 4: Solución en Archivo Único
- * Implementación de Electrodomestico (Objeto Literal) y creación de 10 instancias.
- * Autores: Aitana González Rodríguez, [Nombre Compañero 1], [Nombre Compañero 2]
- * Curso: DAW2 2025-2026
- */
-
-// =============================================================================
-// I. DEFINICIÓN DEL OBJETO LITERAL ELECTRODOMESTICO
-// =============================================================================
-
+//AITANA GÓNZÁLEZ RODRÍGUEZ
+//Script que gestiona un objeto literal Electrodomestico y genera 10 instancias aleatorias
 const Electrodomestico = {
-    // Propiedades "privadas" (Convención)
-    _id: "NOID", 
+    //Propiedades "privadas"
+    _id: "NOID",
     _modelo: "NOMOD",
-    _consumo: 1, // Valor por defecto: 1
+    _consumo: 1,
+    _bajoConsumo: false,
 
-    // -------------------------------------------------------------------------
-    // MÉTODOS AUXILIARES Y DE INSTANCIA
-    // -------------------------------------------------------------------------
-
+    //MÉTODOS auxiliares y de instancia
     verificarID(id) {
-        // Comienza con "ELEC " y longitud total entre 10 y 20 caracteres.
-        return id.startsWith("ELEC ") && id.length >= 10 && id.length <= 20;
+        //Comienza con "ELEC" y longitud total entre 10 y 20 caracteres
+        return id.startsWith("ELEC") && id.length >= 10 && id.length <= 20;
     },
 
     calcularConsumo(horas) {
-        // Horas debe ser un número >= 0
-        if (typeof horas === 'number' && horas >= 0) {
-            return this._consumo * horas;
-        }
-        return -1; // Devolverá -1 si las horas no son válidas.
+        //Horas >= 0
+        if (typeof horas !== 'number' || horas < 0) return -1;
+
+        let base = this._consumo * horas;
+        //Aplica reducción si tiene bajo consumo
+        return this._bajoConsumo ? base / 2 : base; //Operario ternario que aplica reducción si tiene bajo consumo
     },
 
     toString() {
-        // Formato: "ELEC: _identificador; _modelo; consumo;"
-        return `ELEC: ${this._id}; ${this._modelo}; ${this._consumo};`;
+        return `ELEC: ${this._id}; ${this._modelo}; ${this._consumo}; BajoConsumo: ${this._bajoConsumo}`;
     },
 
-    // -------------------------------------------------------------------------
-    // SETTERS Y GETTERS PUROS
-    // -------------------------------------------------------------------------
-
-    // --- ID ---
+    //SETTERS Y GETTERS
+    //De id
     get id() {
         return this._id;
     },
@@ -52,51 +38,54 @@ const Electrodomestico = {
         }
     },
 
-    // --- MODELO ---
+    //De modelo
     get modelo() {
         return this._modelo;
     },
+
     set modelo(modelo) {
         const modeloMayusculas = String(modelo).toUpperCase();
-        // Comprueba que tenga al menos 6 caracteres.
-        if (modeloMayusculas.length >= 6) { 
+        //Comprueba que tenga al menos 6 caracteres.
+        if (modeloMayusculas.length >= 6) {
             this._modelo = modeloMayusculas;
         }
     },
 
-    // --- CONSUMO ---
+    //De consumo
     get consumo() {
         return this._consumo;
     },
     set consumo(consumo) {
-        // Comprueba que sea un entero mayor o igual que 1.
+        //Comprueba que sea un entero mayor o igual que 1.
         if (Number.isInteger(consumo) && consumo >= 1) {
             this._consumo = consumo;
         }
     },
+    //De bajo consumo
+    get bajoConsumo() {
+        return this._bajoConsumo;
+    },
+    set bajoConsumo(valor) {
+        this._bajoConsumo = Boolean(valor);
+    },
 };
 
-// =============================================================================
-// II. FUNCIONES AUXILIARES PARA CREACIÓN DE OBJETOS Y DATOS
-// =============================================================================
-
-/**
- * @description Crea un nuevo objeto que hereda las propiedades y métodos del objeto literal Electrodomestico.
- * @returns {object} Una nueva instancia de Electrodomestico.
- */
+//FUNCIONES AUXILIARES para la creación de objetos y datos
+//Función crearElectrodomestico: Crea un nuevo objeto que hereda las propiedades y métodos del objeto literal Electrodomestico
 function crearElectrodomestico() {
-    const nuevaInstancia = Object.create(Electrodomestico);
-    // Inicializar propiedades
-    nuevaInstancia._id = "NOID";
-    nuevaInstancia._modelo = "NOMOD";
-    nuevaInstancia._consumo = 1;
-
-    return nuevaInstancia;
+    const obj = Object.create(Electrodomestico);
+    //Inicializo las propiedades
+    obj._id = "NOID";
+    obj._modelo = "NOMOD";
+    obj._consumo = 1;
+    obj._bajoConsumo = false;
+    return obj; //Devuelve una nuevo objeto o instancia
 }
 
+//Función generarIDAleatorio 
 function generarIDAleatorio() {
-    const prefijo = "ELEC ";
-    const longitudRestante = Math.floor(Math.random() * 11) + 5; // [5, 15]
+    const prefijo = "ELEC";
+    const longitudRestante = Math.floor(Math.random() * 11) + 6; //[6, 16]
     let parteAleatoria = '';
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -112,63 +101,62 @@ function generarModeloAleatorio() {
 }
 
 function generarConsumoAleatorio() {
-    return Math.floor(Math.random() * 10) + 1; // Entero [1, 10]
+    return Math.floor(Math.random() * 10) + 1; //Entero [1, 10]
 }
 
-// =============================================================================
-// III. LÓGICA DE EJECUCIÓN Y MANIPULACIÓN DEL DOM
-// =============================================================================
+function generarBajoConsumoAleatorio() {
+    return Math.random() < 0.5; // 50% de probabilidad
+}
 
-/**
- * @description Inserta un mensaje en el cuerpo del HTML.
- * @param {string} mensaje - El texto a insertar.
- * @param {string} [clase=''] - Clase CSS opcional para el párrafo.
- */
+//Ejecución y manipulación del DOM
+
+//Función insertarMensaje que inserta un mensaje en el cuerpo del html
 function insertarMensaje(mensaje, clase = '') {
-    // *** CORRECCIÓN CLAVE: Cambiar 'resultados' por 'salida' para que coincida con el HTML ***
-    const resultadosDiv = document.getElementById('salida'); 
-    
-    // Si el div 'salida' existe, insertamos
-    if (resultadosDiv) {
-        const p = document.createElement('p'); 
+    const resultados = document.getElementById('salida');
+
+    //Si el div 'salida' existe, insertamos los mensajes
+    if (resultados) {
+        const p = document.createElement('p');
         p.textContent = mensaje;
         if (clase) {
             p.className = clase;
         }
-        resultadosDiv.appendChild(p);
+        resultados.appendChild(p);
     } else {
-        // Opcional: Escribir en la consola si el div de salida no se encuentra
-        console.error("Error: No se encontró el elemento con ID 'salida' en el HTML.");
+        //Si no se encuentra el elemento, aparece este error
+        console.error("Error: No se encontró el elemento con ID 'salida' en el HTML");
     }
 }
 
 // Función principal, similar a la estructura de tu ejemplo
 function principal() {
-    insertarMensaje("--- INICIO: Creación de 10 Electrodomésticos Aleatorios (Objeto Literal) ---", "titulo-seccion");
+    insertarMensaje("Creación de 10 Electrodomésticos aleatorios (Objeto Literal)", "titulo-seccion");
 
-    // Bucle de creación y muestra de los 10 objetos
+    //Bucle de creación y muestra de los 10 objetos
     for (let i = 1; i <= 10; i++) {
         const electro = crearElectrodomestico();
 
-        // Asignar valores aleatorios usando los SETTERS (aplicando validaciones)
+        //Asigno los valores aleatorios usando los SETTERS
         electro.id = generarIDAleatorio();
         electro.modelo = generarModeloAleatorio();
         electro.consumo = generarConsumoAleatorio();
+        electro.bajoConsumo = generarBajoConsumoAleatorio();
 
-        insertarMensaje(`*** Electrodoméstico #${i} ***`, "subtitulo");
-        
-        // Mostrar información usando el método toString() y los GETTERS
-        insertarMensaje(`[toString()]: ${electro.toString()}`); 
-        insertarMensaje(`  - Propiedades (Getters): ID: ${electro.id} | Modelo: ${electro.modelo} | Consumo: ${electro.consumo}`);
 
-        // Probar el método calcularConsumo()
-        const horasUso = Math.random() * 24; 
+        insertarMensaje(`Electrodoméstico #${i}`, "subtitulo");
+
+        //Muestro la información usando el método toString() y los getters
+        insertarMensaje(`Método toString(): ${electro.toString()}`);
+        insertarMensaje(`-Propiedades (Getters): ID: ${electro.id} / Modelo: ${electro.modelo} / Consumo: ${electro.consumo} /Bajo Consumo: ${electro.bajoConsumo}`);
+
+        //Compruebo el método calcularConsumo()
+        const horasUso = Math.random() * 24;
         const consumoTotal = electro.calcularConsumo(horasUso);
-        insertarMensaje(`  - Cálculo: Consumo de ${horasUso.toFixed(2)} horas = ${consumoTotal.toFixed(2)} unidades.`);
+        insertarMensaje(`-Cálculo: Consumo de ${horasUso.toFixed(2)} horas = ${consumoTotal.toFixed(2)} unidades`);
+        //Linea para separar un poco
+        insertarMensaje("---------------------------------------------------------------------------------------------------------------");
     }
-    
-    insertarMensaje("--- FIN: 10 Electrodomésticos Creados ---", "titulo-seccion");
 }
 
-// Cuando la página carga, se llama a la función principal
+//Cuando la página HTML ha cargado completamente, se ejecuta la función principal
 document.addEventListener('DOMContentLoaded', principal);

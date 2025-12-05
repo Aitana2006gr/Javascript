@@ -48,7 +48,7 @@ function principal() {
                         mostrarError("El tamaño de la dimensión 1 tiene que ser un valor entero mayor o igual a 1");
                         return;
                     }
-                    //Compruebo los campos sobrantes, es decir, d2 y d3 deben ser undefined, así también en el caso 2
+                    //Compruebo los campos sobrantes, es decir, d2 y d3 deben ser undefined para que se active, así también en el caso 2 
                     if (typeof d2 !== 'undefined' || typeof d3 !== 'undefined') { //
                         mostrarError("Para una matriz de 1 dimensión, no se deben rellenar dimensiones 2 o 3");
                         return;
@@ -101,7 +101,7 @@ function principal() {
                 mostrarMatriz(matrizCreada);
             }
 
-        } catch (error) {
+        } catch (error) { //Por si ocurre algún otro error
             mostrarError("No se ha podido crear la matriz:" + error.message);
         }
     }
