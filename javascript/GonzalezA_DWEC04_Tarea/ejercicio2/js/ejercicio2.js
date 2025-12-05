@@ -2,87 +2,77 @@
 //Script que crea y muestra los objetos con herencia por prototipos.
 
 //Hago el import de las funciones del ejercicio a este script principal
-import { Electrodomestico, Lavadora, mostrarError, mostrarMensaje } from "./funciones.js";
+import { Electrodomestico, Lavadora} from "./funciones.js";
 
-// Función auxiliar para añadir contenido a la división 'salida' (no reemplaza el contenido).
-// NOTA: Esta función se define localmente aquí para asegurar que los mensajes se concatenen.
+//Función para mostrar el contenido, la diferencia es que este añade el resto de los mensajes con el +=
+//NOTA: Esta función se define localmente aquí para asegurar que los mensajes se concatenen
 function mostrar(mensaje) {
     const salida = document.getElementById("salida");
-    // Usamos += para añadir nuevo contenido
+    //Uso += para añadir el nuevo contenido
     salida.innerHTML += `<div>${mensaje}</div>`;
 }
 
 //Cuando la página HTML ha cargado completamente, se ejecuta la función principal
 document.addEventListener("DOMContentLoaded", principal);
 
-
-//---------------------------------------------------------
-// FUNCIÓN PRINCIPAL
-// Crea y testea las instancias de Electrodomestico y Lavadora
-//---------------------------------------------------------
+//FUNCIÓN PRINCIPAL
+//Creo y testeo las instancias de Electrodomestico y Lavadora
 function principal() {
-    
-    // --------------------------------------
-    // 1. DEMOSTRACIÓN DE ELECTRODOMESTICO
-    // --------------------------------------
-    
+
+    //ELECTRODOMÉSTICO
     mostrar("<hr><h3>DEMOSTRACIÓN: CLASE ELECTRODOMESTICO</h3>");
-    
-    const e = new Electrodomestico();
-    mostrar("<strong>Electrodoméstico 1 creado con valores por defecto:</strong>");
-    mostrar(e.toString()); // Muestra: ELEC: NOID; NOMOD; 1;
-    
-    // Asignamos valores válidos (cumpliendo las validaciones)
+    const e = new Electrodomestico();//Creo el objeto
+    mostrar("Electrodoméstico 1 creado con valores por defecto:");
+    mostrar(e.toString()); //Muestro sus datos
+
+    //Asigno valores válidos (cumpliendo las validaciones)
     e.ID = "ELEC - ABC123";
-    e.Modelo = "MODELOX"; // Longitud >= 6
-    e.Consumo = 4; // Entero >= 1
-    
-    mostrar("<br><strong>Electrodoméstico 1 actualizado:</strong>");
-    mostrar(e.toString()); // Muestra los valores actualizados
-    
-    // Prueba del cálculo de consumo
-    mostrar(`Consumo 3 horas → ${e.calcularConsumo(3)} kW (4 kW/h * 3 h)`);
+    e.Modelo = "MODELOX"; //Longitud >= 6
+    e.Consumo = 4; //Entero >= 1
 
-    // Prueba de validaciones fallidas (el objeto NO cambia)
-    e.Consumo = 0.5; // Falla (no es entero >= 1)
-    e.Modelo = "MOD"; // Falla (longitud < 6)
-    mostrar("<br><strong>Después de intentos de asignación fallidos:</strong>");
-    mostrar(e.toString()); // El Consumo y el Modelo siguen siendo 4 y MODELOX
+    mostrar("<br>Electrodoméstico 1 actualizado:");
+    mostrar(e.toString()); //Muestro los valores actualizados
 
-    
-    // --------------------------------------
-    // 2. DEMOSTRACIÓN DE LAVADORA
-    // --------------------------------------
-    
+    //Calculo de consumo
+    mostrar(`Consumo de 3 horas: ${e.calcularConsumo(3)} kW`);
+
+    //Compruebo las fallidas (el objeto NO cambia)
+    e.Consumo = 0.5; //No es entero >= 1
+    e.Modelo = "MOD"; //longitud < 6
+    mostrar("<br>Después de intentos:");
+    mostrar(e.toString()); //El consumo y el modelo siguen siendo 4 y MODELOX
+
+    //LAVADORA
     mostrar("<hr><h3>DEMOSTRACIÓN: CLASE LAVADORA (HERENCIA)</h3>");
     
+    //Creo el objeto
     const l = new Lavadora();
-    
-    // Asignamos valores del padre (Electrodomestico)
+
+    //Asigno valores del padre (Electrodomestico)
     l.ID = "ELEC - LAV01";
     l.Modelo = "LAVAMAX";
-    l.Consumo = 5; 
-    
-    // Asignamos valores propios de Lavadora
-    l.Capacidad = 8; 
-    l.BajoConsumo = true; // Activa el descuento del 50%
-    l.TipoCarga = 1; // 1 = Lateral
-    
-    mostrar("<strong>Lavadora 1 creada:</strong>");
-    mostrar(l.toString()); // Llama al toString() sobrescrito
-    mostrar(`Tipo de carga textual: <strong>${l.TipoCargaTexto}</strong>`);
-    
-    // Prueba de cálculo de consumo con BajoConsumo = true (debería ser 50% de 5*4 = 20)
-    const consumo_con_descuento = l.calcularConsumo(4);
-    mostrar(`Consumo 4 horas (Bajo Consumo) → ${consumo_con_descuento} kW (10 kW)`);
+    l.Consumo = 5;
 
-    // Prueba de cálculo de consumo sin BajoConsumo
+    //Asigno valores propios de Lavadora
+    l.Capacidad = 8;
+    l.BajoConsumo = true; //Activa el descuento del 50%
+    l.TipoCarga = 1; //1 = Lateral
+
+    mostrar("Lavadora 1 creada:");
+    mostrar(l.toString()); //Llama al toString() sobrescrito
+    mostrar(`Tipo de carga textual: ${l.TipoCargaTexto}`);
+
+    //Prueba de cálculo de consumo con bajoConsumo
+    const consumo_con_descuento = l.calcularConsumo(4);
+    mostrar(`Consumo 4 horas (bajo consumo): ${consumo_con_descuento} kW`);
+
+    //Prueba de cálculo de consumo sin bajoConsumo
     l.BajoConsumo = false;
     const consumo_sin_descuento = l.calcularConsumo(4);
-    mostrar(`Consumo 4 horas (Sin Bajo Consumo) → ${consumo_sin_descuento} kW (20 kW)`);
-    
-    // Prueba de TipoCarga inválida
-    l.TipoCarga = 99; // Inválido, debería resetear a 0
-    mostrar("<br><strong>Prueba TipoCarga inválida (debe ser 0 'Indefinida'):</strong>");
+    mostrar(`Consumo 4 horas (sin bajo consumo): ${consumo_sin_descuento} kW`);
+
+    //Prueba de TipoCarga con error
+    l.TipoCarga = 99; //Se debería reiniciar a 0
+    mostrar("<br>Prueba de error:");
     mostrar(`Tipo Carga: ${l.TipoCarga} (${l.TipoCargaTexto})<hr>`);
 }
