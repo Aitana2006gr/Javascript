@@ -1,24 +1,20 @@
-// Clase Telefono, heredando de Dispositivo
+//Clase Telefono, hereda de Dispositivo (Dispositivo es su clase padre)
 function Telefono() {
-    Dispositivo.call(this); // Llamada al constructor padre
+    Dispositivo.call(this); //Llama al constructor padre
 
+    //Valores por defecto
     this._pulgadas = 0;
     this._tipoPanel = 0;
     this._tiposPanelArr = ["OLED", "AMOLED", "QLED", "NanoCell"];
 }
 
-// Herencia del prototipo
+//Herencia del prototipo Dispositivo
 Telefono.prototype = Object.create(Dispositivo.prototype);
 Telefono.prototype.constructor = Telefono;
 
-// ====== SETTERS Y GETTERS ======
-
+//Setters
 Telefono.prototype.setPulgaddas = function(valor) {
     this._pulgadas = valor;
-};
-
-Telefono.prototype.getPulgadas = function() {
-    return this._pulgadas;
 };
 
 Telefono.prototype.setTipoPanel = function(tipo) {
@@ -29,6 +25,11 @@ Telefono.prototype.setTipoPanel = function(tipo) {
     }
 };
 
+//Getters
+Telefono.prototype.getPulgadas = function() {
+    return this._pulgadas;
+};
+
 Telefono.prototype.getTipoPanel = function() {
     return this._tipoPanel;
 };
@@ -37,8 +38,8 @@ Telefono.prototype.getTipoPanelTexto = function() {
     return this._tiposPanelArr[this._tipoPanel];
 };
 
-// ====== MÉTODOS ======
-
+//Métodos
+//Método toString para mostrar la información del telefono
 Telefono.prototype.toString = function() {
     return (
         Dispositivo.prototype.toString.call(this) +
@@ -46,6 +47,7 @@ Telefono.prototype.toString = function() {
     );
 };
 
+//Método verificarID que devuelve booleano y comprueba si la cadena comienza con "TELF -" comprobando que sea mayor o igual a 10 y menor o igual a 20
 Telefono.prototype.verificarID = function(id) {
     if (!id.startsWith("TELF - ")) return false;
     return id.length >= 10 && id.length <= 20;
