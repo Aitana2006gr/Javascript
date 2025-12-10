@@ -14,10 +14,10 @@ export function mostrarMensaje(mensaje) {
 
 // Función crearMatriz(): Crea una matriz 1D, 2D o 3D según los parámetros recibidos
 export function crearMatriz(d1, d2, d3) {
-//Como más adelante, en la función principal, ya valido que se genere la matriz según sus campos, 
-// solo coloco aquí unas pequeñas comprobaciones, enfocandome principalmente en las operaciones.
+    //Como más adelante, en la función principal, ya valido que se genere la matriz según sus campos, 
+    // solo coloco aquí unas pequeñas comprobaciones, enfocandome principalmente en las operaciones.
 
-//Uso bucles recorriendo arrays y ya
+    //Uso bucles recorriendo arrays y ya
     //1 dimensión
     if (!d2 && !d3) {
         let array = [];
@@ -53,17 +53,17 @@ export function crearMatriz(d1, d2, d3) {
     return array;
 }
 
-//---------------------------------------------------------
-// FUNCIÓN mostrarMatriz()
-// Muestra la matriz creada en el div "salida"
-//---------------------------------------------------------
+//FUNCIÓN mostrarMatriz()
+//Muestra la matriz creada en el div "salida"
 export function mostrarMatriz(matriz) {
     const salida = document.getElementById("salida");
 
-    //Detectamos la dimensión de la matriz
-    function dimension(arr) {
-        if (!Array.isArray(arr)) return 0;
-        return 1 + dimension(arr[0]);
+    //Determinamos la dimensión de la matriz
+    function dimension(array) {
+        if (!Array.isArray(array)) { //Si el elemento no es un array, la dimensión es 0
+            return 0; 
+        }
+        return 1 + dimension(array[0]); //La dimensión es 1
     }
 
     const dim = dimension(matriz);
@@ -71,17 +71,17 @@ export function mostrarMatriz(matriz) {
     let html = "";
 
     if (dim === 1) {
-         //1D → en tabla con una sola fila
-        html = "<table border='1' cellspacing='0' cellpadding='5'><tr>";
+        //1D-table
+        html = "<table border='1' cellspacing='0' cellpadding='5'><tr>"; //Pues he utilizado tablas para la visualización
         for (let i = 0; i < matriz.length; i++) {
-            html += `<td>${matriz[i]}</td>`;
+            html += `<td>${matriz[i]}</td>`; //Voy insertando cada elemento como una celda de la tabla
         }
         html += "</tr></table>";
     } else if (dim === 2) {
-        //2D → tabla
+        //2D-tabla
         html = "<table border='1' cellspacing='0' cellpadding='5'>";
         for (let i = 0; i < matriz.length; i++) {
-            html += "<tr>";
+            html += "<tr>"; //Inicio otra fila y hago lo mismo
             for (let j = 0; j < matriz[i].length; j++) {
                 html += `<td>${matriz[i][j]}</td>`;
             }
@@ -89,12 +89,15 @@ export function mostrarMatriz(matriz) {
         }
         html += "</table>";
     } else if (dim === 3) {
-        //3D → tabla por cada “capa”
-        for (let x = 0; x < matriz.length; x++) {
+        //3D-tabla por cada “capa”
+        for (let x = 0; x < matriz.length; x++) {//Pues es lo mismo que antes, pero he cambiado solo el nombre a xyz
+            //Bucle externo
             html += `<div><strong>Capa ${x}:</strong></div>`;
             html += "<table border='1' cellspacing='0' cellpadding='5'>";
+            //Bucle intermedio
             for (let y = 0; y < matriz[x].length; y++) {
                 html += "<tr>";
+                //Bucle interno
                 for (let z = 0; z < matriz[x][y].length; z++) {
                     html += `<td>${matriz[x][y][z]}</td>`;
                 }
@@ -104,5 +107,5 @@ export function mostrarMatriz(matriz) {
         }
     }
 
-    salida.innerHTML = html;
+    salida.innerHTML = html; //Todos los html +=se han ido añadiendo al html final, por lo que se va acumulando el texto
 }

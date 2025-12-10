@@ -1,14 +1,151 @@
 //AITANA GÓNZÁLEZ RODRÍGUEZ
 //FUNCIONES para el script del ejercicio 2
 
-//Función mostrarError(): Muestra un mensaje de error dentro de la división "salida"
-export function mostrarError(mensaje) {
-    const salida = document.getElementById("salida");
-    salida.innerHTML = `<div style="color:red">ERROR: No se ha podido crear la matriz: ${mensaje}</div>`;
+//PROTOTIPO Electrodomestico
+export function Electrodomestico() {
+    this._id = "NOID"; //Nota: las propiedades se suelen escribir _asi
+    this._modelo = "NOMOD";
+    this._consumo = 1;
 }
 
-//Función mostrarMensaje(): Muestra mensajes informativos en la salida
-export function mostrarMensaje(mensaje) {
-    const salida = document.getElementById("salida");
-    salida.innerHTML = `<div>${mensaje}</div>`;
+//GETTERS/SETTERS usando defineProperty
+Object.defineProperty(Electrodomestico.prototype, "ID", { //Defino una nueva propiedad directamente en el objeto
+    set: function (id) { //Defino la función Setter para la propiedad ID
+        const mayus = String(id).toUpperCase(); //Coloco la cadena a mayúsculas
+        //Verifico y asigno
+        if (this.verificarID(mayus)) {
+            this._id = mayus;
+        }
+    },
+    get: function () {
+        return this._id; //Devuelvo el id
+    }
+});
+
+Object.defineProperty(Electrodomestico.prototype, "Modelo", {
+    set: function (modelo) {
+        const m = String(modelo).toUpperCase();
+        //Compruebo que tiene al menos 6 caracteres
+        if (m.length >= 6) {
+            this._modelo = m;
+        }
+    },
+    get: function () {
+        return this._modelo; //Devuelvo el modelo
+    }
+});
+
+Object.defineProperty(Electrodomestico.prototype, "Consumo", {
+    set: function (consumo) {
+        const c = Number(consumo);
+        //Compruebo que es un valor entero mayor o igual que 1
+        if (Number.isInteger(c) && c >= 1) {
+            this._consumo = c;
+        }
+    },
+    get: function () {
+        return this._consumo;
+    }
+});
+
+//MÉTODOS prototipo Electrodomestico
+Electrodomestico.prototype.toString = function () {
+    //Devuelve los datos
+    return `ELEC: ${this._id}; ${this._modelo}; ${this._consumo};`;
+};
+
+Electrodomestico.prototype.verificarID = function (id) {
+    //La entrada id deberá comenzar con "ELEC" y tener entre 10 y 20 caracteres
+    if (!id.startsWith("ELEC")) { return false; }
+    return id.length >= 10 && id.length <= 20;
+};
+
+Electrodomestico.prototype.calcularConsumo = function (horas) {
+    const h = Number(horas);
+    //Comprueba si las horas es un numero >= 0, sino devolverá -1 
+    if (isNaN(h) || h < 0) { return -1; }
+    return this._consumo * h;
+};
+
+//PROTOTIPO Lavadora (de Electrodomestico)
+export function Lavadora() {
+    Electrodomestico.call(this); //Llama al constructor padre Electrodomestico
+    //Tienen sus valores por defecto
+    this._capacidad = 1;
+    this._bajoConsumo = false;
+    this._tipoCarga = 0;
+
+    //Array que no se podrá modificar 
+    this._tiposCargaArr = Object.freeze(["Indefinida", "Lateral", "Superior"]);
 }
+
+//Herencia
+Lavadora.prototype = Object.create(Electrodomestico.prototype);
+Lavadora.prototype.constructor = Lavadora;
+
+//Geters y setters
+Object.defineProperty(Lavadora.prototype, "Capacidad", {
+    set: function (v) {
+        const n = Number(v);
+        //Compruebo que es un valor entero mayor o igual que 1
+        if (Number.isInteger(n) && n >= 1) { this._capacidad = n; }
+    },
+    get: function () {
+        return this._capacidad; //Devuelvo el valor de _capacidad
+    }
+});
+
+Object.defineProperty(Lavadora.prototype, "BajoConsumo", {
+    set: function (v) {
+        this._bajoConsumo = Boolean(v); //Asigno el valor recibido a _bajoConsumo
+    },
+    get: function () {
+        return this._bajoConsumo; //Devuelvo el valor de _bajoConsumo
+    }
+});
+
+Object.defineProperty(Lavadora.prototype, "TipoCarga", {
+    set: function (v) {
+        const n = Number(v);
+        //Si el valor recibido es menor que 0 o mayor a 2, asigna el valor 0. 
+        //De lo contrario, se asigna el valor recibido
+        if (!Number.isInteger(n) || n < 0 || n > 2) {
+            this._tipoCarga = 0;
+        } else {
+            this._tipoCarga = n;
+        }
+    },
+    get: function () {
+        return this._tipoCarga; //Devuelvo el valor de _tipoCarga
+    }
+});
+
+Object.defineProperty(Lavadora.prototype, "TipoCargaTexto", {
+    get: function () {
+        //Devuelvo el tipo de carga en formato texto usando _tipoCarga como índice
+        return this._tiposCargaArr[this._tipoCarga];
+    }
+});
+
+//MÉTODOS sobreescritos (Override)
+Lavadora.prototype.toString = function () {
+    //Llama al método de la clase patre y añade el resto
+    const padreString = Electrodomestico.prototype.toString.call(this);
+    return `${padreString} ${this._capacidad}; ${this._bajoConsumo}; ${this._tipoCarga};`;
+};
+
+Lavadora.prototype.calcularConsumo = function (horas) {
+    const base = Electrodomestico.prototype.calcularConsumo.call(this, horas);
+
+    if (base === -1) { //Si _bajoConsumo es true, devolverá la mitad del cálculo,
+        // de lo contrario, devolverá el cálculo normal
+        return -1;
+    }
+
+    //Si tiene bajo consumo, devuelve la mitad
+    if (this._bajoConsumo) {
+        return base / 2;
+    }
+
+    return base;
+};
