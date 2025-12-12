@@ -57,7 +57,7 @@ Dispositivo.prototype.verificarID = function(id) {
     return id.length >= 10;
 };
 
-//método horasRestantes que devuelve true o false las horas restantes
+//Método horasRestantes que devuelve true o false las horas restantes
 Dispositivo.prototype.horasRestantes = function(uso) {
     return uso * this._autonomia * this._carga / 100;
 };
