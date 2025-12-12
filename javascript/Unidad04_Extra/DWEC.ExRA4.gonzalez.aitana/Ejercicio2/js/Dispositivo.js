@@ -1,3 +1,4 @@
+// AITANA GONZÁLEZ RODRÍGUEZ
 //Clase Dispositivo definida mediante Class
 class Dispositivo {
     constructor(_id = "NOID", _autonomia = 0, _carga = 0) { //Constructor

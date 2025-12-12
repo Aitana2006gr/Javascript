@@ -1,3 +1,4 @@
+// AITANA GONZÁLEZ RODRÍGUEZ
 //Constante para el array de tipos de panel 
 const tiposPanelArr = ["OLED", "AMOLED", "QLED", "NanoCell"];
 
