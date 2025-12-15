@@ -63,7 +63,7 @@ class Telefono extends Dispositivo {
         if (!id.startsWith("TELF ")) {
             return false;
         }
-        //para comprobar que debe tener el menos 10 chars y un máximo de 20 en total 
+        //Para comprobar que debe tener el menos 10 chars y un máximo de 20 en total 
         if (id.length < 10 || id.length > 20) {
             return false;
         }

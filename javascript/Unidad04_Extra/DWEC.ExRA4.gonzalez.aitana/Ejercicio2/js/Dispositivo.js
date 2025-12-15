@@ -50,7 +50,7 @@ class Dispositivo {
     //Métodos
     //Método toString para mostrar la información
     toString() {
-        //Devuelve la siguiente cadena de texto con sus pripiedades
+        //Devuelve la siguiente cadena de texto con sus propiedades
         return `DISP: ${this._id}; ${this._autonomia}; ${this._carga};`;
     }
 
@@ -59,8 +59,9 @@ class Dispositivo {
         return id.length >= 10;
     }
 
-    //Método horasRestantes que devuelve true o false las horas restantes
+    //Método horasRestantes que devuelve el resultado de las horas restantes
     horasRestantes(uso) {
-        return uso * this._autonomia * this._carga / 100;
+        let horasRestantes = uso * this._autonomia * this._carga / 100;
+        return horasRestantes;
     }
 }
