@@ -4,7 +4,7 @@ function calculosMultiples(tipoCalculo, ...args) {
     //1.Si no recibe ningún parámetro
     if (tipoCalculo === undefined) {
         //El tipoCalculo es undefined si a la función se la llama sin argumentos
-        console.log("No se introdujeron parámetros");//Muestra mensaje si no lo es
+        console.log("No se introdujeron parámetros");//Mensaje de error
         return;
     }
 
@@ -14,7 +14,7 @@ function calculosMultiples(tipoCalculo, ...args) {
     let calculo = String(tipoCalculo).toUpperCase();
     //Comprueba que el primer parametro es "E" o "L"
     if (calculo !== "E" && calculo !== "L") {
-        console.log("El cálculo escogido no es válido"); //Muestra mensaje si no lo es
+        console.log("El cálculo escogido no es válido"); //Mensaje de error
         return;
     }
 
@@ -62,7 +62,6 @@ console.log(`Resultado: ${calculosMultiples('E', 2, 4)}`); //16
 
 console.log("\nCaso 4: 'E' Parámetros erróneos");
 calculosMultiples('e', 2, 4, 8);
-
 
 //Caso "L" (listar)
 console.log("\nCaso 5: 'L' Correcto");
