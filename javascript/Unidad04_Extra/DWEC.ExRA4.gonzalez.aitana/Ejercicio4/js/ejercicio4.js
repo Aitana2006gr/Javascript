@@ -1,94 +1,75 @@
-// AITANA GONZÁLEZ RODRÍGUEZ
-
+//AITANA GONZÁLEZ RODRÍGUEZ
+//Función calculosMultiples que tiene por parametro el tipoCalculo como operación y un número indeterminado de argumentos
 function calculosMultiples(tipoCalculo, ...args) {
-    // 1. Si no recibe ningún parámetro
+    //1.Si no recibe ningún parámetro
     if (tipoCalculo === undefined) {
-        // La sintaxis con el parámetro rest '...args' siempre tendrá al menos 'tipoCalculo',
-        // si el usuario llama a la función sin nada, 'tipoCalculo' será undefined.
-        console.log("No se introdujeron parámetros");
-        return; // Retorna sin hacer nada más
-    }
-
-    // Aseguramos que el tipoCalculo es una cadena para poder convertirlo a mayúsculas
-    let calculo = String(tipoCalculo).toUpperCase();
-
-    // 2. El primer parámetro solo podrá tomar los valores E o L
-    if (calculo !== 'E' && calculo !== 'L') {
-        console.log("El cálculo escogido no es válido");
+        //El tipoCalculo es undefined si a la función se la llama sin argumentos
+        console.log("No se introdujeron parámetros");//Muestra mensaje si no lo es
         return;
     }
 
-    // 3. En caso de escoger 'E' (Exponente)
-    if (calculo === 'E') {
-        // Se esperan solo otros dos argumentos más (el total son 3: 'E', base, exponente)
+
+    //2.El primer parámetro solo podrá tomar los valores "E" o "L"
+    //Se convierte el tipoCalculo a una cadena escrita en mayúsculas
+    let calculo = String(tipoCalculo).toUpperCase();
+    //Comprueba que el primer parametro es "E" o "L"
+    if (calculo !== "E" && calculo !== "L") {
+        console.log("El cálculo escogido no es válido"); //Muestra mensaje si no lo es
+        return;
+    }
+
+    //3.En caso de escoger "E" (exponente)
+    if (calculo === "E") {
+        //Se comprueba que haya solo dos argumentos más ya que, en total, son 3: 'E', base y exponente
         if (args.length !== 2) {
-            console.log("Se ha introducido un número erróneo de parámetros");
+            console.log("Se ha introducido un número erróneo de parámetros"); //Mensaje de error
             return;
         }
 
-        // Extraemos la base y el exponente (no se necesita verificar que sean números)
-        const base = args[0];
+        //Guardo la base y el exponente
+        const base = args[0];  //La expresión args[], usa los elementos del array args
         const exponente = args[1];
 
-        // Devuelve el resultado de elevar el primero al segundo
-        // Utilizamos Math.pow(base, exponente) para calcular la potencia
+        //Devuelvo el resultado, utilizando Math.pow(base, exponente) para calcular la potencia
         return Math.pow(base, exponente);
     }
 
-    // 4. En caso de introducir una 'L' (Listar y Ordenar)
-    if (calculo === 'L') {
-        // A partir del segundo parámetro (que ya están en 'args')
-        // se consideran números que no es necesario verificar.
-
-        // Ordenar los números de mayor a menor (descendente)
-        // La función de comparación (a, b) => b - a ordena de mayor a menor
-        // Creamos una copia del array antes de ordenar para no modificar 'args' original, aunque en este contexto no es crítico.
+    //4.En caso de introducir una "L" (listar y ordenar)
+    if (calculo === "L") {
+        //Ordenar los números de mayor a menor (descendente)
+        //La función de comparación (a, b) => b - a ordena de mayor a menor
+        //Creo una copia del array antes de ordenar para no modificar el array "args" original
         const numerosOrdenados = args.slice().sort((a, b) => b - a);
 
-        // Devuelve mediante return el listado de números ordenados
+        //Devuelve mediante return el listado de numerosOrdenados
         return numerosOrdenados;
     }
 }
 
-// --- EJEMPLOS DE USO (Para probar en la consola) ---
-
-console.log("--- Pruebas para calculosMultiples ---");
-
-// 1. Sin parámetros
+//MUESTRO POR CONSOLA
+console.log("CALCULOS MULTIPLES:");
+//Sin parámetros
 console.log("Caso 1: Sin parámetros");
-calculosMultiples(); // Salida esperada: "No se introdujeron parámetros"
+calculosMultiples();
 
-// 2. Cálculo no válido
+//Cálculo no válido
 console.log("\nCaso 2: Cálculo no válido");
-calculosMultiples('X', 1, 2); // Salida esperada: "El cálculo escogido no es válido"
+calculosMultiples('X', 1, 2);
 
-// 3. Caso 'E' (Exponente) - Correcto
+//Caso "E" (exponente)
 console.log("\nCaso 3: 'E' Correcto (2 elevado a 4)");
-console.log(`Resultado: ${calculosMultiples('E', 2, 4)}`); // Salida esperada: 16
+console.log(`Resultado: ${calculosMultiples('E', 2, 4)}`); //16
 
-// 3. Caso 'E' (Exponente) - Número erróneo de parámetros (demasiados)
-console.log("\nCaso 4: 'E' Parámetros erróneos (demasiados)");
-calculosMultiples('e', 2, 4, 8); // Salida esperada: "Se ha introducido un número erróneo de parámetros"
+console.log("\nCaso 4: 'E' Parámetros erróneos");
+calculosMultiples('e', 2, 4, 8);
 
-// 3. Caso 'E' (Exponente) - Número erróneo de parámetros (demasiado pocos)
-console.log("\nCaso 5: 'E' Parámetros erróneos (pocos)");
-calculosMultiples('E', 5); // Salida esperada: "Se ha introducido un número erróneo de parámetros"
 
-// 4. Caso 'L' (Listar) - Correcto (números enteros y decimales)
-console.log("\nCaso 6: 'L' Correcto");
-const listadoL = calculosMultiples('L', 10, 3.5, 99, 0, 75.1, 10);
-console.log("Listado original: [10, 3.5, 99, 0, 75.1, 10]");
-console.log("Listado ordenado (mayor a menor):", listadoL); 
-// Salida esperada: [99, 75.1, 10, 10, 3.5, 0]
+//Caso "L" (listar)
+console.log("\nCaso 5: 'L' Correcto");
+const listadoL = calculosMultiples('L', 23, 25.5, 0, 98, 73, 27);
+console.log("Listado original: [23, 25.5, 0, 98, 73, 27]");
+console.log("Listado ordenado (mayor a menor):", listadoL);//[ 98, 73, 27, 25.5, 23, 0 ]
 
-// 4. Caso 'L' (Listar) - Sin números, solo 'L'
-console.log("\nCaso 7: 'L' Sin números");
+console.log("\nCaso 6: 'L' Sin números");
 const listadoLVacio = calculosMultiples('l');
-console.log("Listado ordenado:", listadoLVacio); 
-// Salida esperada: []
-
-// 4. Caso 'L' (Listar) - Con tipo en minúscula
-console.log("\nCaso 8: 'l' Correcto (en minúscula)");
-const listadoLMin = calculosMultiples('l', 5, 2, 8);
-console.log("Listado ordenado (mayor a menor):", listadoLMin); 
-// Salida esperada: [8, 5, 2]
+console.log("Listado ordenado:", listadoLVacio);//[]
