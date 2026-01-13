@@ -1,0 +1,25 @@
+div {
+    border: solid black 1px;
+    margin-top: 5px;
+    padding: 10px 20px 30px 40px; /*agujas de reloj: se empieza por las 12, arriba, derecha, abajo, izquierda*/
+}
+
+#div1{
+    background-color: aqua;
+}
+
+#div2{
+    background-color: brown;
+    border-width: 10px;
+    border-color: cornflowerblue;
+    height: 100px; /*Estos 100 pixeles, los esta midiento borde y contenido*/
+    margin-bottom: 20px;
+}
+
+#div3{
+    background-color: greenyellow;
+}
+#div4{
+    background-color: purple;
+    /*em, vw, vh*/
+}
