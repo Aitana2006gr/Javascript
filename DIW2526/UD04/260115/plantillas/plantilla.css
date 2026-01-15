@@ -1,0 +1,99 @@
+/*
+#miTabla + p { /*Tiene que ser hermanos e inmediatamente consecutivos*/
+/*
+    color: red;
+}
+
+#miTabla ~ p { /*Tiene que ser hermanos */
+/*
+    color: blue;
+}
+
+div[aitana="true"]{
+    background-color: aquamarine;
+}
+
+td[aitana="true"]{
+    background-color: coral;
+}
+
+.yoquese[aitana="true"]{
+    border: dashed 3px purple;
+}
+
+*[aitana="true"]{
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+*[aitana~="33"]{
+    background-color: gold;
+}
+   */
+
+*[aitana~="true"] {
+    background-color: gold;
+}
+
+*[aitana~="33"] {
+    border: solid 3px black;
+}
+
+*[aitana~="22"] {
+    border: solid 3px red;
+}
+
+#lorem::first-line {
+    color: green;
+}
+
+#lorem::first-letter {
+    font-weight: bold;
+    font-size: 30px;
+    color: lime;
+}
+/*
+#miTabla td:nth-child(2){
+   color: pink; 
+}
+
+#miTabla tr:nth-child(2){
+   color: blueviolet; 
+}
+*/
+#miTabla tr:nth-child(odd){
+   background-color: royalblue; 
+}
+
+#miTabla tr:nth-child(even){
+   background-color: rosybrown; 
+}
+
+/*
+#miTabla tr td:nth-child(odd){
+   background-color: royalblue; 
+}
+
+#miTabla tr td:nth-child(even){
+   background-color: rosybrown; 
+}
+*/
+
+
+#miUl li:nth-child(2){
+   color: blueviolet; 
+}
+
+/*let sel= document.querySelectorAll("#miTabla:nth-child(2)") 
+sel 
+Si hay dudas de que se esta seleccionando, usar esto en la consola*/
+
+#miTabla tr:nth-child(odd){
+   background-color: royalblue; 
+}
+
+#miTabla2 tbody tr:nth-child(odd) > td:nth-child(even){ /*todos los tr que estan dentro de mi tabla2*/
+   background-color: rgb(255, 113, 248); 
+}
+
+/* Hacer comentario con el comando control + c francesa */

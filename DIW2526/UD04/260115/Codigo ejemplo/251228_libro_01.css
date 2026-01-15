@@ -1,0 +1,72 @@
+/* 
+  Versión 1: Con float.
+  
+  OBSOLETA: Ver los ejemplos 02 y 03 del mismo día con flex y grid
+
+*/
+
+.divGris {
+  background-color: grey;
+  border: darkgrey solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  /* POSICIONAMIENTO */
+  float: right;
+  width: 20%;
+}
+
+
+.divRoja {
+  background-color: red;
+  border: darkred solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  /* POSICIONAMIENTO */
+  float: right;
+  width: 20%;
+}
+
+.divVerde {
+  background-color: green;
+  border: darkgreen solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  /* POSICIONAMIENTO */
+  float: left;
+  width: 20%;
+}
+
+.divAzul {
+  background-color: blue;
+  border: darkblue solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  /* POSICIONAMIENTO */
+  float: right;
+  width: 20%;
+}
+
+.divAmarilla {
+  background-color: yellow;
+  border: darkorange solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  /* POSICIONAMIENTO */
+  /* float: left; */
+  clear: left;
+  width: 20%;
+} 
+
+/* FIN - Versión 1: Con float - obsoleta */
+
+/* Mejor usar el position , MDN y w3schols */
