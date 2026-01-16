@@ -1,0 +1,12 @@
+
+table{
+    font-size: 30px;
+    background-color: rgb(55, 19, 102);
+}
+
+td{   
+    font-size: 20px;
+    background-color: rgb(206, 230, 241); 
+    border: solid 2px black; font-weight: bolder
+}
+
