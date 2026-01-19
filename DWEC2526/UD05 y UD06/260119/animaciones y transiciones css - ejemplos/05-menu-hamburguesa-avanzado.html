@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Hamburguesa Avanzado</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; overflow-x: hidden; }
+    #menu-toggle { display: none; }
+    .hamburguesa {
+      position: fixed;
+      top: 20px; right: 20px;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .hamburguesa span {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: black;
+      transition: 0.3s;
+    }
+    .hamburguesa span:nth-child(1) { top: 0; }
+    .hamburguesa span:nth-child(2) { top: 10px; }
+    .hamburguesa span:nth-child(3) { bottom: 0; }
+
+    /* Animación del icono */
+    #menu-toggle:checked ~ .hamburguesa span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    #menu-toggle:checked ~ .hamburguesa span:nth-child(2) {
+      opacity: 0;
+    }
+    #menu-toggle:checked ~ .hamburguesa span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      transition: left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    #menu-toggle:checked ~ nav { left: 0; }
+
+    nav ul { padding: 80px 20px 0; list-style: none; }
+    nav a { color: white; text-decoration: none; font-size: 24px; display: block; padding: 15px 0; }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburguesa">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Proyectos</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+  <div style="padding: 80px 20px 20px;">
+    <h1>Menú Hamburguesa Avanzado</h1>
+    <p>Icono animado + menú con curva de Bézier</p>
+  </div>
+</body>
+</html>

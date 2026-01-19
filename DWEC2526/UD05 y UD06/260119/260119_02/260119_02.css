@@ -1,0 +1,12 @@
+#salida {
+    border: 0.1vw solid black;
+    background-color: rgb(171, 205, 229);
+}
+
+/* Vamos a definir algunos estilos comunes para las divs. Podría haberles creado una clase ya habría sido más rápido, o no o qué sé  yo. Todo depende de lo que quieras hacer. */
+/* #div1, #div2, #div3, #div4 {
+    border: 0.1vw solid black;
+    height: 10%;
+    margin-top: 0.5vw;
+    text-align: center;
+} */

@@ -100,3 +100,5 @@ let celdaBorrada= celda.parentNode.removeChild(celda);
 
 }
 
+//Deberia tener solo un manejadorCelda, donde pongo todos los eventos posibles para las celdas 
+

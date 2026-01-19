@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Hamburguesa Simple</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    nav {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100vh;
+      background: #333;
+      color: white;
+      transition: left 0.3s ease;
+    }
+    #menu-toggle { display: none; }
+    #menu-toggle:checked ~ nav { left: 0; }
+    .hamburguesa {
+      position: fixed;
+      top: 20px; right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    nav ul { padding: 60px 20px 0; list-style: none; }
+    nav a { color: white; text-decoration: none; display: block; padding: 10px 0; }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburguesa">&#9776;</label>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+  <div style="padding: 80px 20px 20px;">
+    <h1>Página de ejemplo</h1>
+    <p>Haz clic en el menú ☰</p>
+  </div>
+  <!-- Explicación: Usa :checked para mostrar menú sin JS -->
+</body>
+</html>
