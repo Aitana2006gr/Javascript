@@ -13,15 +13,18 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 16px;
-      transition: all 0.25s ease;
+      transition: all 0.25s ease; /*lo que dura la transición*/
+
     }
     .boton:hover {
-      background: #0b7dda;
-      transform: translateY(-3px);
+      background: rgba(15, 59, 255, 0.733); /*#0b7dda*/
+      transform: translateY(-3px); /*-y es que se va para arriba*/
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: dashed 3px violet;
     }
     .boton:active {
-      transform: translateY(0);
+      transform: translateY(0); /*Cuando lo pulso vuelve otra vez a la posicion de inicio*/
+      background: rgba(0, 4, 255, 0.863);
     }
   </style>
 </head>
