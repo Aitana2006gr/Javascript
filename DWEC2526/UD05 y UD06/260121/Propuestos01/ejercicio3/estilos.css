@@ -1,0 +1,28 @@
+.cuadrado-cuqui {
+    text-align: center;
+    font-size:xx-large;
+    width: 100px;
+    height: 100px;
+    background-color: #FFD1DC; /* Rosa pastel */
+    border: 3px solid #FF69B4; /* Borde rosa más oscuro */
+    border-radius: 15px; /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* Sombra rosa */
+    display: inline-block;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.cuadrado-cuqui:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #FFC0CB; /* Rosa más brillante al pasar el ratón */
+}
+
+.cuadrado-cuqui::after {
+    content: '♥';
+    font-size: 40px;
+    color: #FF1493;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

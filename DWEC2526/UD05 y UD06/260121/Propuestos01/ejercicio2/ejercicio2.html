@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
+    <script src="./js/ejercicio2.js"></script>
+    
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h2>Ejercicio 1</h2>
+    <!-- Cambia en el siguiente h1, donde pone "Nombre y apellidos" y pon tus datos -->
+    <h1 id="cambiaNombre">Pon tu nombre y apellidos desde código JS</h1>
+    <table>
+        <tr>
+            <td>
+                <legend>Pulsadores</legend>
+                <fieldset>
+                    <!-- Crea un único manejador para las divisiones de  -->
+                    <div id="container">
+                        <div id="div_red" style="
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            height: 80px;
+                            width: 120px;
+                            background-color: red;
+                            border: solid 1px black;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 12px;
+                            font-weight: bold;">
+                            <div id="div_blue" style="position: absolute;
+                            top: 70px;
+                            left: 50px;
+                            height: 80px;
+                            width: 120px;
+                            background-color: blue;
+                            border: solid 1px black;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 12px;
+                            font-weight: bold;">
+                                <div id="div_orange" style="position: absolute;
+                                top: -10px;
+                                left: 50px;
+                                height: 80px;
+                                width: 120px;
+                                background-color: orange;
+                                border: solid 1px black;
+                                color: white;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-size: 12px;
+                                font-weight: bold;">
+                                    <div id="div_green" style="position: absolute;
+                                    top: -50px;
+                                    left: -10px;
+                                    height: 80px;
+                                    width: 120px;
+                                    background-color: green;
+                                    border: solid 1px black;
+                                    color: white;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 12px;
+                                    font-weight: bold;">
+                                        <div id="div_purple" style="position: absolute;
+                                        top: 30px;
+                                        left: 100px;
+                                        height: 80px;
+                                        width: 120px;
+                                        background-color: purple;
+                                        border: solid 1px black;
+                                        color: white;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-size: 12px;
+                                        font-weight: bold;">
+                                            <div id="div_yellow" style="position: absolute;
+                                            top: 50px;
+                                            left: -30px;
+                                            height: 80px;
+                                            width: 120px;
+                                            background-color: yellow;
+                                            border: solid 1px black;
+                                            color: black;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            font-size: 12px;
+                                            font-weight: bold;">
+                                                <div id="div_cyan" style="position: absolute;
+                                                top: 50px;
+                                                left: 40px;
+                                                height: 80px;
+                                                width: 120px;
+                                                background-color: cyan;
+                                                border: solid 1px black;
+                                                color: black;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                font-size: 12px;
+                                                font-weight: bold;">
+                                                    <div id="div_magenta" style="position: absolute;
+                                                    top: 50px;
+                                                    left: -100px;
+                                                    height: 80px;
+                                                    width: 120px;
+                                                    background-color: magenta;
+                                                    border: solid 1px black;
+                                                    color: white;
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    font-size: 12px;
+                                                    font-weight: bold;">
+                                                        <div id="div_lime" style="position: absolute;
+                                                        top: 50px;
+                                                        left: 50px;
+                                                        height: 80px;
+                                                        width: 120px;
+                                                        background-color: lime;
+                                                        border: solid 1px black;
+                                                        color: black;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: center;
+                                                        font-size: 12px;
+                                                        font-weight: bold;">
+                                                            <div id="div_navy" style="position: absolute;
+                                                            top: 30px;
+                                                            left: 50px;
+                                                            height: 80px;
+                                                            width: 120px;
+                                                            background-color: navy;
+                                                            border: solid 1px black;
+                                                            color: white;
+                                                            display: flex;
+                                                            justify-content: center;
+                                                            align-items: center;
+                                                            font-size: 12px;
+                                                            font-weight: bold;">
+                                                                <div id="div_teal" style="position: absolute;
+                                                                top: -30px;
+                                                                left: 50px;
+                                                                height: 80px;
+                                                                width: 120px;
+                                                                background-color: teal;
+                                                                border: solid 1px black;
+                                                                color: white;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                align-items: center;
+                                                                font-size: 12px;
+                                                                font-weight: bold;">
+                                                                    <div id="div_maroon" style="position: absolute;
+                                                                    top: -50px;
+                                                                    left: -50px;
+                                                                    height: 80px;
+                                                                    width: 120px;
+                                                                    background-color: maroon;
+                                                                    border: solid 1px black;
+                                                                    color: white;
+                                                                    display: flex;
+                                                                    justify-content: center;
+                                                                    align-items: center;
+                                                                    font-size: 12px;
+                                                                    font-weight: bold;">
+                                                                        <div id="div_olive" style="position: absolute;
+                                                                        top: -0px;
+                                                                        left: -200px;
+                                                                        height: 80px;
+                                                                        width: 120px;
+                                                                        background-color: olive;
+                                                                        border: solid 1px black;
+                                                                        color: black;
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                        align-items: center;
+                                                                        font-size: 12px;
+                                                                        font-weight: bold;">
+                                                                            <div id="div_silver" style="position: absolute;
+                                                                            top: 100px;
+                                                                            left: 10px;
+                                                                            height: 80px;
+                                                                            width: 120px;
+                                                                            background-color: silver;
+                                                                            border: solid 1px black;
+                                                                            color: black;
+                                                                            display: flex;
+                                                                            justify-content: center;
+                                                                            align-items: center;
+                                                                            font-size: 12px;
+                                                                            font-weight: bold;">
+                                                                                <div id="div_gold" style="position: absolute;
+                                                                                top: 20px;
+                                                                                left: 70px;
+                                                                                height: 80px;
+                                                                                width: 120px;
+                                                                                background-color: gold;
+                                                                                border: solid 1px black;
+                                                                                color: black;
+                                                                                display: flex;
+                                                                                justify-content: center;
+                                                                                align-items: center;
+                                                                                font-size: 12px;
+                                                                                font-weight: bold;">
+                                                                                    <div id="div_pink" style="position: absolute;
+                                                                                    top: -180px;
+                                                                                    left: -10px;
+                                                                                    height: 80px;
+                                                                                    width: 120px;
+                                                                                    background-color: pink;
+                                                                                    border: solid 1px black;
+                                                                                    color: black;
+                                                                                    display: flex;
+                                                                                    justify-content: center;
+                                                                                    align-items: center;
+                                                                                    font-size: 12px;
+                                                                                    font-weight: bold;">
+                                                                                        <div id="div_brown" style="position: absolute;
+                                                                                        top: 200px;
+                                                                                        left: 20px;
+                                                                                        height: 80px;
+                                                                                        width: 120px;
+                                                                                        background-color: brown;
+                                                                                        border: solid 1px black;
+                                                                                        color: white;
+                                                                                        display: flex;
+                                                                                        justify-content: center;
+                                                                                        align-items: center;
+                                                                                        font-size: 12px;
+                                                                                        font-weight: bold;">
+                                                                                            <div id="div_coral" style="position: absolute;
+                                                                                            top: 30px;
+                                                                                            left: 75px;
+                                                                                            height: 80px;
+                                                                                            width: 120px;
+                                                                                            background-color: coral;
+                                                                                            border: solid 1px black;
+                                                                                            color: black;
+                                                                                            display: flex;
+                                                                                            justify-content: center;
+                                                                                            align-items: center;
+                                                                                            font-size: 12px;
+                                                                                            font-weight: bold;">
+                                                                                                <div id="div_darkgreen" style="position: absolute;
+                                                                                                top: -15px;
+                                                                                                left: 55px;
+                                                                                                height: 80px;
+                                                                                                width: 120px;
+                                                                                                background-color: darkgreen;
+                                                                                                border: solid 1px black;
+                                                                                                color: white;
+                                                                                                display: flex;
+                                                                                                justify-content: center;
+                                                                                                align-items: center;
+                                                                                                font-size: 12px;
+                                                                                                font-weight: bold;">
+                                                                                                    <div id="div_darkblue" style="position: absolute;
+                                                                                                    top: 20px;
+                                                                                                    left: 50px;
+                                                                                                    height: 80px;
+                                                                                                    width: 120px;
+                                                                                                    background-color: darkblue;
+                                                                                                    border: solid 1px black;
+                                                                                                    color: white;
+                                                                                                    display: flex;
+                                                                                                    justify-content: center;
+                                                                                                    align-items: center;
+                                                                                                    font-size: 12px;
+                                                                                                    font-weight: bold;">
+                                                                                                        <div id="div_lightblue" style="position: absolute;
+                                                                                                        top: 78px;
+                                                                                                        left: -75px;
+                                                                                                        height: 80px;
+                                                                                                        width: 120px;
+                                                                                                        background-color: lightblue;
+                                                                                                        border: solid 1px black;
+                                                                                                        color: black;
+                                                                                                        display: flex;
+                                                                                                        justify-content: center;
+                                                                                                        align-items: center;
+                                                                                                        font-size: 12px;
+                                                                                                        font-weight: bold;">
+                                                                                                            <div id="div_beige" style="position: absolute;
+                                                                                                            top: -20px;
+                                                                                                            left: -120px;
+                                                                                                            height: 80px;
+                                                                                                            width: 120px;
+                                                                                                            background-color: beige;
+                                                                                                            border: solid 1px black;
+                                                                                                            color: black;
+                                                                                                            display: flex;
+                                                                                                            justify-content: center;
+                                                                                                            align-items: center;
+                                                                                                            font-size: 12px;
+                                                                                                            font-weight: bold;"></div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <legend>Texto</legend>
+                <fieldset>
+                    <!-- Las siguientes son las divisiones de salida no las toques -->
+                    
+                    <select id="inColor">
+                        <option value="red">Rojo</option>
+                        <option value="blue">Azul</option>
+                        <option value="orange">Naranja</option>
+                        <option value="green">Verde</option>
+                        <option value="yellow">Amarillo</option>
+                        <option value="purple">Morado</option>
+                        <option value="pink">Rosa</option>
+                        <option value="brown">Marrón</option>
+                        <option value="cyan">Cyan</option>
+                        <option value="magenta">Magenta</option>
+                        <option value="lime">Lima</option>
+                        <option value="navy">Azul marino</option>
+                        <option value="teal">Café</option>
+                        <option value="maroon">Marrón oscuro</option>
+                        <option value="olive">Oliva</option>
+                        <option value="silver">Plata</option>
+                        <option value="gold">Dorado</option>
+                        <option value="pink">Rosa</option>
+                        <option value="brown">Marrón</option>
+                        <option value="coral">Coral</option>
+                        <option value="darkgreen">Verde oscuro</option>
+                        <option value="darkblue">Azul oscuro</option>
+                        <option value="lightblue">Azul claro</option>
+                        <option value="beige">Beige</option>
+                    </select>
+                    <input type="button" id="btnResetear" value="Resetear">
+                    <br><br>
+                    <div id="div_salida"></div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

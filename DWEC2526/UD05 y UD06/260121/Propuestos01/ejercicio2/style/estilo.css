@@ -1,0 +1,377 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    overflow: hidden;
+} */
+
+#container {
+    position: relative;
+    width: 425px;
+    height: 560px;
+    background-color: white;
+    border: solid 1px black;
+    overflow: hidden;
+}
+
+#div_salida {
+    /* position: relative; */
+    border: 1px solid black;
+    width: 425px;
+    height: 50px;
+}
+
+/* #div_red {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 80px;
+    width: 120px;
+    background-color: red;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_blue {
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: blue;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_green {
+    position: absolute;
+    top: -50px;
+    left: -10px;
+    height: 80px;
+    width: 120px;
+    background-color: green;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_orange {
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: orange;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_purple {
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    height: 80px;
+    width: 120px;
+    background-color: purple;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_yellow {
+    position: absolute;
+    top: 50px;
+    left: -30px;
+    height: 80px;
+    width: 120px;
+    background-color: yellow;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_cyan {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    height: 80px;
+    width: 120px;
+    background-color: cyan;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_magenta {
+    position: absolute;
+    top: 50px;
+    left: -100px;
+    height: 80px;
+    width: 120px;
+    background-color: magenta;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_lime {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: lime;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_navy {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: navy;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_teal {
+    position: absolute;
+    top: -30px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: teal;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_maroon {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    height: 80px;
+    width: 120px;
+    background-color: maroon;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_olive {
+    position: absolute;
+    top: -0px;
+    left: -200px;
+    height: 80px;
+    width: 120px;
+    background-color: olive;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_silver {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    height: 80px;
+    width: 120px;
+    background-color: silver;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_gold {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    height: 80px;
+    width: 120px;
+    background-color: gold;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_pink {
+    position: absolute;
+    top: -180px;
+    left: -10px;
+    height: 80px;
+    width: 120px;
+    background-color: pink;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_brown {
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    height: 80px;
+    width: 120px;
+    background-color: brown;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_coral {
+    position: absolute;
+    top: 30px;
+    left: 75px;
+    height: 80px;
+    width: 120px;
+    background-color: coral;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_darkgreen {
+    position: absolute;
+    top: -15px;
+    left: 55px;
+    height: 80px;
+    width: 120px;
+    background-color: darkgreen;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_darkblue {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    height: 80px;
+    width: 120px;
+    background-color: darkblue;
+    border: solid 1px black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_lightblue {
+    position: absolute;
+    top: 78px;
+    left: -75px;
+    height: 80px;
+    width: 120px;
+    background-color: lightblue;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* #div_beige {
+    position: absolute;
+    top: -20px;
+    left: -120px;
+    height: 80px;
+    width: 120px;
+    background-color: beige;
+    border: solid 1px black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+} */
