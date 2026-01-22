@@ -5,21 +5,34 @@ function principal() {
     console.log("Funciona");
     //Creo los elementos del DOM
     let titEjercicio = crearElemento("h2", "Ejercicio 1");
-    let titNombre= crearElemento("h1", "Aitana González Rodríguez");
-    let inputNombre= crearElemento("input", "Nombre");
-    let inputOpciones= crearElemento("input", "Cantidad");
-    let br=crearElemento("br");
+    let titMiNombre = crearElemento("h1", "Aitana González Rodríguez");
+    let inputNombre = crearElemento("input", undefined, { type: "text", id: "campoNombre", placeholder: "Nombre" });
+    let inputCantidad = crearElemento("input", undefined, { type: "number", id: "campoCantidad", placeholder: "Cantidad" });
+    let selectOpciones = crearElemento("select", undefined, { id: "campoComida"});
+    let optionValor0 = crearElemento("option", "Selecciona...", { value: "" });
+    let optionValor1 = crearElemento("option", "Patatas", { value: "Patatas" });
+    let optionValor2 = crearElemento("option", "Tomates", { value: "Tomates" });
+    let optionValor3 = crearElemento("option", "Manzanas", { value: "Manzanas" });
+    let botonCrear=crearElemento("input", "",  { type: "button", id: "botonCrear", value:"Crear" });
 
-    // console.log(titEjercicio);
+    //Coloco los elementos en el DOM
+    //console.log(titEjercicio);
     document.body.appendChild(titEjercicio);
-    //append(titNombre);
-    titEjercicio.appendChild(titNombre);
-    titNombre.appendChild(br);
-    titNombre.appendChild(inputNombre);
-    //in
+    titEjercicio.appendChild(titMiNombre);
+    document.body.appendChild(inputNombre);
+    document.body.appendChild(inputCantidad);
+    document.body.appendChild(selectOpciones);
+    selectOpciones.appendChild(optionValor0);
+    selectOpciones.appendChild(optionValor1);
+    selectOpciones.appendChild(optionValor2);
+    selectOpciones.appendChild(optionValor3);
+    //document.body.innerText+="<br>";
+    document.body.appendChild(botonCrear); 
 
     //Asignar el manejador del click
-    
+    document.getElementById("botonCrear").addEventListener("click", botonCrearDivision , false);
+    document.body.appendChild(crearElemento("div", undefined,{id:"divSalida"}));
+
 
 }
 
@@ -46,19 +59,37 @@ function crearElemento(etiqueta, texto, atributos) {
     return elementoNuevo;
 }
 
-function botonCrearDivision(){
+function botonCrearDivision() {
 
+    let divSalida=document.getElementById("divSalida");
+    let texto=document.getElementById("campoNombre").value+
+    " come "+document.getElementById("campoCantidad").value+" "+ document.getElementById("campoComida").value;
+
+    let nuevaDivision=crearElemento("div", texto, {style: "backgroundColor: red"});
+    divSalida.parentNode.replaceChild(nuevaDivision, divSalida);
 }
 
-function manejadorClick(){
+function manejadorClick() {
     //Limpiar
     //Coger los datos del DOM
     //Generar salida
     //Añadir la salida al DOM
-//Jose ibañez benchezdfwa linkedin
-//aiprompts, aiplan, ai features 
-// aitoolkits aicontext, proyecto todos
-// contexto de cada proyecto//
-//cursor, postgre
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+    //Jose ibañez benchezdfwa linkedin
+    //aiprompts, aiplan, ai features 
+    // aitoolkits aicontext, proyecto todos
+    // contexto de cada proyecto//
+    //cursor, postgre

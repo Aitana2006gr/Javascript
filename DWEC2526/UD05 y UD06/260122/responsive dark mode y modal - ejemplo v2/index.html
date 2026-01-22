@@ -1,0 +1,66 @@
+<!-- 🌐 HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 🔑 IMPORTANTE: Esta etiqueta permite que los móviles muestren la web correctamente -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Responsiva</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">MiWeb</h1>
+
+      <!-- Botón hamburguesa (solo visible en móvil) -->
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navegación principal -->
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <!-- <li><a href="#">Servicios</a></li> -->
+          <li><a href="#" id="open-modal">Servicios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- 🌐 HTML -->
+      <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <h2>Nuestros Proyectos</h2>
+      <div class="cards-grid">
+        <div class="card"><h3>Proyecto A</h3></div>
+        <div class="card"><h3>Proyecto B</h3></div>
+        <div class="card"><h3>Proyecto C</h3></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 MiWeb</p>
+    </div>
+  </footer>
+
+  
+  <!-- 🌐 HTML -->
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="close-modal">&times;</span>
+      <h2>Detalles del Proyecto</h2>
+      <p>Este es un cuadro de diálogo creado con tecnologías nativas.</p>
+    </div>
+  </div>
+</body>
+</html>
