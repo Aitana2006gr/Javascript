@@ -1,0 +1,5 @@
+Si se usa el sql que se da por defecto en Heidi con Laragon puede dar problemas por los permisos para creación de usuario y la base de datos.
+
+Para evitar esto. se crea a mano la base de datos y el usuario al que se le han de dar permisos, sino dará error al hacer una consulta con él.
+
+También se puede cambiar del archivo PHP el usuario y contraseña por uno que ya tengan en la base de datos.

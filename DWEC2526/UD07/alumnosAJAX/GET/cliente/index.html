@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <script src="./scripts/probando.js"></script> -->
+    <script src="./scripts/alumno.js"></script>
+    <!-- <script src="./scripts/alumnosAJAX_JSON.js"></script> -->
+    <script src="./scripts/alumnosAJAX_JSON.js"></script>
+    <title>Ejemplo AJAX con BD Alumnos</title>
+</head>
+<body>
+    <form>
+        <label>Nombre: </label>
+        <input type="text" id="inNombre"/><br>
+        <label>Apellidos: </label>
+        <input type="text" id="inApellidos"/><br>
+        <label>Fecha de nacimiento: </label>
+        <input type="date" id="inFecha"/><br>
+        <label>Curso: </label>
+        <input type="text" id="inCurso"/><br>
+        <label>Nota media: </label>
+        <input type="text" id="inNota"/><br>
+        <input type ="button" id="btnBuscar" value="Buscar"/><br><br>
+    </form>
+    <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Apellidos</th>
+            <th>Nombre</th>
+            <th>F. Nacimiento</th>
+            <th>Curso</th>
+            <th>Nota Media</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+        </tbody>
+    </table>
+</body>
+</html>
