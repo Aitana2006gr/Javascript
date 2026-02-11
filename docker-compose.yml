@@ -1,0 +1,69 @@
+services:
+  web:
+    build: "."
+    container_name: eljardindelasmariposas_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www
+    depends_on:
+    - bd
+    - ldap
+    environment:
+      LDAP_ADMIN_PASSWORD: ${LDAP_ADMIN_PASSWORD}
+      LDAP_HOST: ${LDAP_HOST}
+      LDAP_BASE_DN: ${LDAP_BASE_DN}
+
+    networks:
+      - eljardindelasmariposas_network
+
+  bd:
+    image: mysql:8.0
+    container_name: eljardindelasmariposas_bd
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: BD_floristeria
+      MYSQL_USER: usuario_floristeria
+      MYSQL_PASSWORD: flores123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/BD_floristeria.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - eljardindelasmariposas_network
+  
+  ldap:
+    image: osixia/openldap:1.5.0
+    container_name: eljardindelasmariposas_ldap
+    environment:
+      LDAP_ORGANISATION: "El Jardin De Las Mariposas"
+      LDAP_DOMAIN: "eljardindelasmariposas.com"
+      LDAP_ADMIN_PASSWORD: admin
+    ports:
+      - "389:389"
+      #  El puerto 389 es el puerto por defecto
+      - "636:636" 
+      # El puerto 636 es para el protocolo de seguridad de ldap
+    networks:
+      - eljardindelasmariposas_network
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:0.9.0
+    container_name: eljardindelasmariposas_phpldapadmin
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap
+      PHPLDAPADMIN_HTTPS: "false" #Añadida para evitar el forbidden
+    ports:
+      - "8081:80"
+    depends_on:
+      - ldap
+    networks:
+      - eljardindelasmariposas_network
+
+networks:
+  eljardindelasmariposas_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
